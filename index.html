@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Iconscout CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- Graph CDN Link -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+          <img src="./Content/Logo.png" alt="" />
+        </div>
+
+        <span class="logo_name">CodingLab</span>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <a href="#">
+              <i class="uil uil-estate"></i>
+              <span class="link-name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-files-landscapes"></i>
+              <span class="link-name">Content</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-chart"></i>
+              <span class="link-name">Analytics</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-thumbs-up"></i>
+              <span class="link-name">Like</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-comments"></i>
+              <span class="link-name">Comment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="uil uil-share"></i>
+              <span class="link-name">Share</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="logout-mode">
+          <li>
+            <a href="#">
+              <i class="uil uil-signout"></i>
+              <span class="link-name">Logout</span>
+            </a>
+          </li>
+
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Dark mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="dashboard">
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+
+        <div class="search-box">
+          <i class="uil uil-search"></i>
+          <input type="text" placeholder="Search here..." />
+        </div>
+
+        <img src="./Content/download.png" alt="" />
+      </div>
+
+      <div class="dash-content">
+        <div class="title">
+          <i class="uil uil-tachometer-fast-alt"></i>
+          <span class="text">Dashboard</span>
+        </div>
+        <canvas id="myChart"></canvas>
+
+        <div class="boxes">
+          <div class="box box1">
+            <i class="uil uil-thumbs-up"></i>
+            <span class="text">Total Likes</span>
+            <span class="number">50,120</span>
+          </div>
+          <div class="box box2">
+            <i class="uil uil-comments"></i>
+            <span class="text">Comments</span>
+            <span class="number">20,525</span>
+          </div>
+          <div class="box box3">
+            <i class="uil uil-share"></i>
+            <span class="text">Total Share</span>
+            <span class="number">10,020</span>
+          </div>
+        </div>
+
+        <canvas id="linearChart" style="width: 100%; max-width: 723px"></canvas>
+
+        <div class="card">
+          <div class="box">
+            <span class="text">Profile</span>
+            <span class="image">
+              <img src="./Content/download.png" alt="" />
+            </span>
+            <span class="text2">Hameez Ur Rehman</span>
+            <button class="btn">Details</button>
+          </div>
+        </div>
+
+        <div class="activity">
+          <div class="title">
+            <i class="uil uil-clock-three"></i>
+            <span class="text">Recent Activity</span>
+          </div>
+
+          <div class="activity-data">
+            <div class="data names">
+              <span class="data-title">Name</span>
+              <span class="data-list">Rowbert Downey Jr</span>
+              <span class="data-list">Alex Hunter</span>
+              <span class="data-list">James Gunn</span>
+              <span class="data-list">Joe Degan</span>
+              <span class="data-list">Raj Kumar</span>
+            </div>
+            <div class="data email">
+              <span class="data-title">Email</span>
+              <span class="data-list">rowbert63@gmail.com</span>
+              <span class="data-list">alex@gmail.com</span>
+              <span class="data-list">j.gunn@gmail.com</span>
+              <span class="data-list">joe.degan@gmail.com</span>
+              <span class="data-list">rajkumar2@gmail.com</span>
+            </div>
+            <div class="data joined">
+              <span class="data-title">Joined</span>
+              <span class="data-list">20-06-2023</span>
+              <span class="data-list">20-06-2023</span>
+              <span class="data-list">20-06-2023</span>
+              <span class="data-list">20-06-2023</span>
+              <span class="data-list">20-06-2023</span>
+            </div>
+            <div class="data status">
+              <span class="data-title">Status</span>
+              <span class="data-list">Liked</span>
+              <span class="data-list">Liked</span>
+              <span class="data-list">Liked</span>
+              <span class="data-list">Liked</span>
+              <span class="data-list">Liked</span>
+            </div>
+          </div>
+
+          <script>
+            var xValues = ["Rowbert", "Alex", "James", "Joe", "Raj"];
+            var yValues = [50, 40, 34, 30, 12, 0];
+            var barColors = ["red", "green", "blue", "orange", "black"];
+
+            new Chart("myChart", {
+              type: "bar",
+              data: {
+                labels: xValues,
+                datasets: [
+                  {
+                    backgroundColor: barColors,
+                    data: yValues,
+                  },
+                ],
+              },
+              options: {
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: "Individual Progress",
+                },
+              },
+            });
+
+            var xValues = [];
+            var yValues = [];
+            generateData("Math.sin(x)", 0, 10, 0.5);
+
+            new Chart("linearChart", {
+              type: "line",
+              data: {
+                labels: xValues,
+                datasets: [
+                  {
+                    fill: false,
+                    pointRadius: 2,
+                    borderColor: "blue",
+                    data: yValues,
+                  },
+                ],
+              },
+              options: {
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: "Statistics",
+                  fontSize: 16,
+                },
+              },
+            });
+            function generateData(value, i1, i2, step = 1) {
+              for (let x = i1; x <= i2; x += step) {
+                yValues.push(eval(value));
+                xValues.push(x);
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
