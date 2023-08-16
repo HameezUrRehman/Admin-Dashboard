@@ -83,7 +83,6 @@ nav .logo-name .logo_name {
   font-weight: 600;
   color: var(--text-color);
   margin-left: 14px;
-  transition: var(--tran-05);
 }
 
 nav.close .logo_name {
@@ -96,7 +95,6 @@ nav .menu-items {
   height: calc(100% - 90px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .menu-items li {
